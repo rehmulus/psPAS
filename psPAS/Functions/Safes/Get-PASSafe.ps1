@@ -15,6 +15,14 @@ function Get-PASSafe {
 			ValueFromPipelinebyPropertyName = $true,
 			ParameterSetName = 'Gen2'
 		)]
+		[ValidateNotNullOrEmpty()]
+		[string]$limit,
+		
+		[parameter(
+			Mandatory = $false,
+			ValueFromPipelinebyPropertyName = $true,
+			ParameterSetName = 'Gen2'
+		)]
 		[ValidateSet('asc', 'desc')]
 		[string]$sort,
 
