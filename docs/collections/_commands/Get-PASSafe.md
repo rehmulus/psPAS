@@ -16,8 +16,8 @@ Returns safe details from the vault.
 
 ### Gen2 (Default)
 ```
-Get-PASSafe [-search <String>] [-sort <String>] [-includeAccounts <Boolean>] [-extendedDetails <Boolean>]
- [-TimeoutSec <Int32>] [<CommonParameters>]
+Get-PASSafe [-search <String>] [-Limit <String>] [-sort <String>] [-includeAccounts <Boolean>]
+ [-extendedDetails <Boolean>] [-TimeoutSec <Int32>] [<CommonParameters>]
 ```
 
 ### Gen2-byName
@@ -79,6 +79,15 @@ Minimum required version 12.2
 
 ### EXAMPLE 4
 ```
+Get-PASSafe -limit 100
+```
+
+Returns all safes, in page sizes of 100.
+
+Minimum required version 12.0
+
+### EXAMPLE 5
+```
 Get-PASSafe -query SAFE1
 ```
 
@@ -86,7 +95,7 @@ Returns details of safes matching query "Safe1" using Gen1 API.
 
 Deprecated from version 12.2
 
-### EXAMPLE 5
+### EXAMPLE 6
 ```
 Get-PASSafe -FindAll -UseGen1API
 ```
@@ -95,7 +104,7 @@ Returns details of all safes using Gen1 API.
 
 Deprecated from version 12.3
 
-### EXAMPLE 6
+### EXAMPLE 7
 ```
 Get-PASSafe -SafeName SAFE1 -UseGen1API
 ```
@@ -290,6 +299,23 @@ Aliases:
 Required: True
 Position: Named
 Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -limit
+Specifies the page size of the requests.
+
+Minimum required version 12.0
+
+```yaml
+Type: String
+Parameter Sets: Gen2
+Aliases:
+
+Required: False
+Position: Named
+Default value: 25
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
